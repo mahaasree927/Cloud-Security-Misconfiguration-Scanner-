@@ -1,0 +1,22 @@
+{
+  "account_id": "444455556666",
+  "region": "ap-south-1",
+  "iam": {
+    "account_summary": {"AccountMFAEnabled": 1, "AccountAccessKeysPresent": 0},
+    "password_policy": {"MinimumPasswordLength": 14},
+    "users": [{"name": "carol", "has_console_password": true, "mfa_enabled": true,
+               "access_keys": [{"id": "AKIAEXAMPLEOK3", "status": "Active", "age_days": 30}],
+               "inline_policies": []}],
+    "policies": []
+  },
+  "s3": {"buckets": [{"name": "good-bucket",
+     "public_access_block": {"BlockPublicAcls": true, "IgnorePublicAcls": true,
+                             "BlockPublicPolicy": true, "RestrictPublicBuckets": true},
+     "acl_public": false, "policy_public": false, "encryption": true, "versioning": true, "logging": true}]},
+  "ec2": {"security_groups": [{"id": "sg-0ok", "name": "https-only", "rules": [
+            {"cidr": "0.0.0.0/0", "protocol": "tcp", "from_port": 443, "to_port": 443}]}],
+          "ebs_volumes": [{"id": "vol-ok", "encrypted": true}],
+          "vpcs": [{"id": "vpc-ok", "flow_logs": true}]},
+  "rds": {"instances": [{"id": "db-ok", "encrypted": true, "publicly_accessible": false}]},
+  "cloudtrail": {"trails": [{"name": "main", "multi_region": true, "log_validation": true, "is_logging": true}]}
+}

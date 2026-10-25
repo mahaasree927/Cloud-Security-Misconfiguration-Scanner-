@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+*.egg-info/
+# real AWS snapshots can contain sensitive account data - never commit them
+snapshot*.json
+reports/*
+!reports/.gitkeep
+!reports/sample_report.md

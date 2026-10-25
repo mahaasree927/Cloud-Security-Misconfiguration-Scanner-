@@ -1,0 +1,22 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ScannerReadOnly",
+      "Effect": "Allow",
+      "Action": [
+        "iam:GetAccountSummary", "iam:GetAccountPasswordPolicy", "iam:ListUsers",
+        "iam:ListAccessKeys", "iam:ListMFADevices", "iam:GetLoginProfile",
+        "iam:ListUserPolicies", "iam:GetUserPolicy", "iam:ListPolicies", "iam:GetPolicyVersion",
+        "s3:ListAllMyBuckets", "s3:GetBucketAcl", "s3:GetBucketPolicyStatus",
+        "s3:GetBucketPublicAccessBlock", "s3:GetEncryptionConfiguration",
+        "s3:GetBucketVersioning", "s3:GetBucketLogging",
+        "ec2:DescribeSecurityGroups", "ec2:DescribeVolumes", "ec2:DescribeVpcs", "ec2:DescribeFlowLogs",
+        "rds:DescribeDBInstances",
+        "cloudtrail:DescribeTrails", "cloudtrail:GetTrailStatus",
+        "sts:GetCallerIdentity"
+      ],
+      "Resource": "*"
+    }
+  ]
+}

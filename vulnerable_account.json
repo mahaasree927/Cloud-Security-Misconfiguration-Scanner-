@@ -1,0 +1,41 @@
+{
+  "account_id": "111122223333",
+  "region": "ap-south-1",
+  "iam": {
+    "account_summary": {"AccountMFAEnabled": 0, "AccountAccessKeysPresent": 1},
+    "password_policy": {"MinimumPasswordLength": 8},
+    "users": [
+      {"name": "alice", "has_console_password": true, "mfa_enabled": false,
+       "access_keys": [{"id": "AKIAEXAMPLEOLD1", "status": "Active", "age_days": 240}],
+       "inline_policies": [{"name": "full-access", "document":
+         {"Version": "2012-10-17", "Statement": [{"Effect": "Allow", "Action": "*", "Resource": "*"}]}}]},
+      {"name": "bob", "has_console_password": true, "mfa_enabled": true,
+       "access_keys": [{"id": "AKIAEXAMPLENEW2", "status": "Active", "age_days": 12}],
+       "inline_policies": []}
+    ],
+    "policies": []
+  },
+  "s3": {"buckets": [
+    {"name": "company-public-assets", "public_access_block": null, "acl_public": true,
+     "policy_public": false, "encryption": false, "versioning": false, "logging": false},
+    {"name": "company-secure-logs",
+     "public_access_block": {"BlockPublicAcls": true, "IgnorePublicAcls": true,
+                             "BlockPublicPolicy": true, "RestrictPublicBuckets": true},
+     "acl_public": false, "policy_public": false, "encryption": true, "versioning": true, "logging": true}
+  ]},
+  "ec2": {
+    "security_groups": [
+      {"id": "sg-0aaa111", "name": "web-ssh", "rules": [
+        {"cidr": "0.0.0.0/0", "protocol": "tcp", "from_port": 22, "to_port": 22},
+        {"cidr": "0.0.0.0/0", "protocol": "tcp", "from_port": 443, "to_port": 443}]},
+      {"id": "sg-0bbb222", "name": "db-open", "rules": [
+        {"cidr": "0.0.0.0/0", "protocol": "tcp", "from_port": 3306, "to_port": 3306}]},
+      {"id": "sg-0ccc333", "name": "allow-all", "rules": [
+        {"cidr": "0.0.0.0/0", "protocol": "-1", "from_port": 0, "to_port": 65535}]}
+    ],
+    "ebs_volumes": [{"id": "vol-0123", "encrypted": false}, {"id": "vol-0456", "encrypted": true}],
+    "vpcs": [{"id": "vpc-0abc", "flow_logs": false}]
+  },
+  "rds": {"instances": [{"id": "prod-db", "encrypted": false, "publicly_accessible": true}]},
+  "cloudtrail": {"trails": []}
+}
